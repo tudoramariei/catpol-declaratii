@@ -15,6 +15,7 @@ from project_template.datamodels.estranged_goods_type import EstrangedGoodsType
 from project_template.datamodels.financial_institution import FinancialInstitution
 from project_template.datamodels.goods_separation_type import GoodsSeparationType
 from project_template.datamodels.holder_relationship import HolderRelationship
+from project_template.datamodels.holder_type import HolderType
 from project_template.datamodels.income_provider_type import IncomeProviderType
 from project_template.datamodels.institution import Institution
 from project_template.datamodels.mobile_goods_type import MobileGoodsType
@@ -274,7 +275,7 @@ class TranscribeOwnedIncomeFromAgriculturalActivitiesTable(forms.Form):
 
 class TranscribeOwnedIncomeFromAgriculturalActivitiesRowEntry(forms.Form):
     holder_relationship = forms.ChoiceField(label="Cine este beneficiarul venitului din activități agricole?", choices=HolderRelationship.return_as_iterable())
-    holder_type = forms.ChoiceField(label="Optiune", choices=[(0, "Insitutie"), (1, "Persoana")], widget=forms.RadioSelect)
+    holder_type = forms.ChoiceField(label="Tipul detinatorului", choices=HolderType.return_as_iterable(), widget=forms.RadioSelect)
     surname = forms.CharField(label="Care e numele persoanei?")
     name = forms.CharField(label="Care e prenumele persoanei?")
     source = forms.CharField(label="Care este sursa?")
